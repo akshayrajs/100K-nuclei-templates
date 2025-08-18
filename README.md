@@ -1,9 +1,8 @@
 
 # cent-nuclei-templates
 ### A curated compilation of custom nuclei templates.
----
+
 ## 🚀 Getting Started
----
 ### 1. Clone the Repository
 
 ```sh
@@ -24,15 +23,14 @@ cat urls.txt | nuclei -t ~/cent-nuclei-templates/templates/
 ```
 
 ## 🛠️ Installation
----
 ### Make sure you have Nuclei installed:
 
 ```sh
 go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
 ```
----
+
 ## 📌 Usage Examples
----
+
 ### Scan a single target
 
 ```sh
@@ -44,9 +42,9 @@ nuclei -t templates/ -u https://target.com
 cat urls.txt | nuclei -t /templates
 
 ```
----
+
 ## Credits
----
+
 - [hakluke](https://twitter.com/hakluke)
 - [Nuclei](https://twitter.com/pdnuclei)
 - [Project Discovery](https://twitter.com/pdiscoveryio)
