@@ -1,2 +1,3 @@
-# nuclei-templates
-Compilation of cent templates
+# Nuclei Template
+----
+### Compilation of Nuclei Template
