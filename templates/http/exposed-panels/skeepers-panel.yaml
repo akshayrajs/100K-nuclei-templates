@@ -1,0 +1,38 @@
+id: skeepers-panel
+
+info:
+  name: Skeepers Login Panel - Detect
+  author: righettod
+  severity: info
+  description: |
+    Skeepers login panel was detected.
+  reference:
+    - https://skeepers.io
+  metadata:
+    verified: true
+    max-request: 2
+    shodan-query: http.title:"Skeepers"
+  tags: panel,skeepers,login,detect
+
+http:
+  - method: GET
+    path:
+      - "{{BaseURL}}/backend/login"
+      - "{{BaseURL}}"
+
+    stop-at-first-match: true
+
+    matchers:
+      - type: dsl
+        dsl:
+          - 'status_code == 200'
+          - 'contains(to_lower(body), "skeepers") && contains(to_lower(body), "login")'
+        condition: and
+
+    extractors:
+      - type: regex
+        part: body
+        group: 1
+        regex:
+          - 'Version\s+([0-9\.]+)\s+-'
+# digest: 4a0a004730450220796c484fc25e6d8f32ed537149ea22cad723213f0ccda46799b954055bbf0401022100a633f8b41ec88336263abde6e56875091f7fc234505c262965dbc16c93bdb537:922c64590222798bb761d5b6d8e72950
