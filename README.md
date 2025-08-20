@@ -38,13 +38,29 @@ nuclei -t templates/ -u https://target.com
 ```
 
 ### Scan multiple targets
-```
+```sh
 cat urls.txt | nuclei -t /templates
-
 ```
+
+### ZSH Killed Issue (Memory Leak)
+```sh
+cat urls.txt | nuclei -t ~/cent-nuclei-templates/templates/ -ss host-spray -c 20 -bs 20 -rl 50 -rsr 1048576
+```
+Explanation:
+
+**-ss host-spray**: Scans all templates against one target before moving on.
+
+**-c 20**: Lower concurrency to reduce CPU and memory usage.
+
+**-bs 20**: Lower bulk size to limit the number of targets processed in parallel.
+
+**-rl 50**: Reduces the rate limit to prevent network saturation.
+
+**-rsr 1048576**: Limits response size read to 1 MB.
 
 ## Credits
 
+- [Cent](https://github.com/xm1k3/cent)
 - [hakluke](https://twitter.com/hakluke)
 - [Nuclei](https://twitter.com/pdnuclei)
 - [Project Discovery](https://twitter.com/pdiscoveryio)
