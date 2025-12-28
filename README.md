@@ -1,5 +1,5 @@
 
-# 100K-nuclei-templates :)
+# 100K-nuclei-templates
 ### A curated compilation of custom nuclei templates.
 
 ## 🚀 Getting Started
